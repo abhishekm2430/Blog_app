@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<style>
+			body {
+					
+					background-color: black;
+					color:#82E0EF;
+					font-style: italic;
+				}
+			
+		</style>
+	</head>
+	<body>
+		<div class = "d4">
+			<div class = "link1"><%= link_to 'Home', articles_path%></div>
+			<div class = "link1"><%= link_to'Edit', edit_article_path(@article) %></div>
+			
+		</div>
+		<div class = "d1">
+			<p><center>
+	  			<strong>Title:</strong>
+	  			<%= @article.title %>
+			</center></p>
+	 
+			<p><center>
+	  			<strong></strong>
+	  			<%= @article.text %>
+			</center></p>
+		</div>
+
+		
+		<div class = "d2">
+			<h2>Comments</h2>
+			<% @article.comments.each do |comment| %>
+	  			<p>
+	    			<strong>User:</strong>
+	    			<%= comment.commenter %>
+	  			</p>
+	 
+				<p>
+	    			<strong>Comment:</strong>
+	    			<%= comment.body %>
+	  			</p>
+
+				<p>
+				<%= link_to 'Delete Comment', [comment.article, comment],
+	               method: :delete,
+	               data: { confirm: 'Are you sure?' } %>
+	 			</p>
+			<% end %>
+		</div>
+		<div class = "d3"><center>
+			<h2>Add a comment:</h2>
+			<%= form_for([@article, @article.comments.build]) do |f| %>
+		  		<p>
+		    		<%= f.label :User %><br>
+		    		<%= f.text_field :commenter %>
+		  		</p>
+		  		<p>
+		   			<%= f.label :Comment %><br>
+		    		<%= f.text_area :body %>
+		  		</p>
+		  		<p>
+		    		<%= f.submit %>
+		  		</p>
+			<% end %></center>
+		</div>
+</body>
+
