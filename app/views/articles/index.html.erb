@@ -19,6 +19,7 @@
       </tr>
  
       <% @articles.each do |article| %>
+      <% if article.isactive.nil? %>
       <tr>
         <td><%= article.title %></td>
         <td><%= article.text %></td>
@@ -26,6 +27,7 @@
         <td><%= link_to'Show', article_path(article) %></td>
         <td><%= link_to'Delete', article_path(article), method: :delete, data: {confirm: 'Are you sure'} %></td>
       </tr>
+      <% end %>
       <% end %>
     </table>
     </center>
