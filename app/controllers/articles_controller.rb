@@ -50,3 +50,4 @@ class ArticlesController < ApplicationController
 		params.require(:article).permit(:title,:text)
 	end
 end
+#working in feture branch
