@@ -6,6 +6,10 @@ table,th,td {
     border: 2px solid white;
     border-collapse: collapse;
     }
+
+.td1 {
+  width: 300px; overflow: hidden;
+}
     
 th,td {
     padding: 15px;
@@ -109,6 +113,7 @@ body {
 
 .text_area {
   padding : 5px;
+  margin: 5px;
   font-size: 20px;
   border-radius:10px;
   width: 500px;

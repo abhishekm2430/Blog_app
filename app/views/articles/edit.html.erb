@@ -29,17 +29,17 @@
   <% end %>
  
   <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.label :title, class: "labels" %><br>
+    <%= f.text_field :title, class: 'input_area' %>
   </p>
  
   <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
+    <%= f.label :text, class: "labels" %><br>
+    <%= f.text_area :text, class: 'text_area' %>
   </p>
  
   <p>
-    <%= f.submit %>
+    <%= f.submit class: 'submit_btn' %>
   </p>
  
 <% end %>

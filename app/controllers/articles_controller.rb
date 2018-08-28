@@ -16,11 +16,13 @@ class ArticlesController < ApplicationController
 	end
 
 	def edit
+
 		@article = Article.find(params[:id])
 	end
 
 	def create
-		@article = Article.new(article_params)
+		@author = User.find(current_user.id)
+		@article = @author.articles.create(article_params)
 		if(@article.save)
 			redirect_to @article
 		else
@@ -39,8 +41,12 @@ class ArticlesController < ApplicationController
 
 	def destroy
 		@article = Article.find(params[:id])
-		@article.isactive = 1
-		@article.save
+		if current_user.email == "admin@gmail.com"
+			@article.destroy
+		else
+			@article.isactive = 1
+			@article.save
+		end
 		#@article.destroy
 		redirect_to articles_path
 	end
