@@ -18,12 +18,12 @@ th,td {
     }
     
 a:link { 
-    color:  #5ECE0B ;
+    color:  #5FE2F9 ;
     text-decoration:none;
     }
 
 a:visited {
-    color: #5ECE0B ;
+    color: #5FE2F9 ;
       }
 
 a:hover {
@@ -42,6 +42,7 @@ body {
 .d1	{
 	font-size: 30px;
 	color:white;
+  margin: 10px;
 	}
 		
 .link1 {
@@ -56,6 +57,12 @@ body {
 	font-family: times new roman;
 	font-style: italic;
 	}
+
+  .usr {
+  font-size:18px;
+  color:red;
+  }
+
 			
 .d3 {
 	margin :5px;
@@ -100,8 +107,10 @@ body {
 
 .submit_btn {
   padding : 5px;
-  font-size: 20px;
+  font-size: 15px;
   border-radius:10px;
+  background-color:#6F180A;
+  color: white; 
 }
 
 .input_area {
@@ -109,6 +118,7 @@ body {
   font-size: 20px;
   border-radius:10px;
   width: 300px;
+  margin:5px;
 }
 
 .text_area {
@@ -122,4 +132,40 @@ body {
 .labels {
   font-size: 20px;
   font-family: new times roman;
+  margin: 5px;
 }
+
+.alert alert-error {
+  color: red;
+  font-size: 20px;
+  position: absolute;
+  top : 10px;
+  left : 500px;
+}
+.container {
+  font-size :30px;
+}
+.error{
+  color:red;
+}
+.success{
+  color:#6FF30D;
+}
+.danger{
+  color:#red;
+}
+.notice{
+  color:#6FF30D;
+}
+.warning{
+  color:yellow;
+}
+.alert{
+  color:yellow;
+}
+
+.d5 {
+  font-size: 24px;
+  color:white;
+  margin: 10px;
+  }

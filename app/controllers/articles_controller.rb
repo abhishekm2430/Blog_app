@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 	#http_basic_authenticate_with name: "user", password:"password",except:[:index, :show]
   before_filter :authenticate_user!
-
+  include Ability
 	def index
 		#binding.pry
 		@articles = Article.all
@@ -32,10 +32,16 @@ class ArticlesController < ApplicationController
 
 	def update
 		@article = Article.find(params[:id])
-		if @article.update(article_params)
-			redirect_to @article 
+		#if @article.user_id == current_user.id
+		if Person.can_do?(@article.user_id, current_user.id)
+			if @article.update(article_params)
+				redirect_to @article 
+			else
+				render 'edit'
+			end
 		else
-			render 'edit'
+			flash[:error]="You are not authorized for this operation!!!"
+			redirect_to article_path
 		end
 	end
 

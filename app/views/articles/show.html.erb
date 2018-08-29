@@ -5,7 +5,7 @@
 					
 					background-color: black;
 					color:#82E0EF;
-					font-style: italic;
+					
 				}
 			
 		</style>
@@ -22,7 +22,8 @@
 	  			<strong>Title:</strong>
 	  			<%= @article.title %>
 			</center></p>
-	 
+	 </div>
+   <div class = "d5">
 			<p><center>
 	  			<strong></strong>
 	  			<%= @article.text %>
@@ -34,12 +35,12 @@
 			<h2>Comments</h2>
 			<% @article.comments.each do |comment| %>
 	  			<p>
-	    			<strong>User:</strong>
+	    			<strong class = "usr">User :</strong>
 	    			<%= comment.commenter %>
 	  			</p>
 	 
 				<p>
-	    			<strong>Comment:</strong>
+	    			<strong class = "usr">Comment :</strong>
 	    			<%= comment.body %>
 	  			</p>
 

@@ -22,13 +22,10 @@
           <% if article.isactive.nil? %>
             <tr>
               <td><div class = "td1"><%=link_to article.title, article_path(article)%></div></td>
-              <td><%= article.user_id %></td>
+              <td><%= User.find(article.user_id).email %></td>
               <% if article.user_id == current_user.id %>
                 <td><%= link_to'Edit', edit_article_path(article) %></td>
                 <td><%= link_to'Delete', article_path(article), method: :delete, data: {confirm: 'Are you sure'} %></td>
-                <%else%>
-                <td>-</td>
-                <td>-</td>
               <% end %> 
             </tr>
           <% end %>
@@ -37,7 +34,7 @@
         <% @articles.each do |article| %>
           <tr>
             <td><div class = "td1"><%=link_to article.title, article_path(article)%></div></td>
-            <td><%= article.user_id %></td>
+            <td><%= User.find(article.user_id).email %></td>
             <td><%= link_to'Edit', edit_article_path(article) %></td>
             <td><%= link_to'Delete', article_path(article), method: :delete, data: {confirm: 'Are you sure'} %></td>
           </tr>
