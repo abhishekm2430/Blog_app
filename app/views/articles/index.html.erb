@@ -3,13 +3,6 @@
     <center>
     <h1>Listing articles</h1>
     <p class = "p1"><%= link_to 'New article', new_article_path %></p>
-    <div class = "divr">
-      <% if !(current_user.nil?)%>
-        <p class = "p1, fr"><%= link_to 'Log out', 'users/sign_out', method: :delete %></p>
-        <p class = "p1, fr"><%= current_user.email %></p>
-        <p class = "p2"><%= link_to "Change your password", edit_user_registration_path %></p>
-      <% end %>
-    </div>
     <table>
       <tr>
         <th>Title</th>
@@ -40,5 +33,6 @@
         <% end %>
       <% end %>
     </table>
+    <p class = "page1"><%= will_paginate @articles %><p>
     </center>
   </body>

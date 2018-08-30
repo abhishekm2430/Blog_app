@@ -4,7 +4,8 @@ class ArticlesController < ApplicationController
   include Ability
 	def index
 		#binding.pry
-		@articles = Article.all.includes(:user)
+		@articles = Article.all.includes(:user).paginate(page: params[:page], per_page: 1)
+
 	end
 
 	def show
