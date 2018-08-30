@@ -1,15 +1,4 @@
-<html>
-	<head>
-		<style>
-			body {
-					
-					background-color: black;
-					color:#82E0EF;
-					
-				}
-			
-		</style>
-	</head>
+
 	<body>
 		<div class = "d4">
 			<div class = "link1"><%= link_to 'Home', articles_path%></div>
@@ -36,7 +25,7 @@
 			<% @article.comments.each do |comment| %>
 	  			<p>
 	    			<strong class = "usr">User :</strong>
-	    			<%= comment.commenter %>
+	    			<%= User.find(comment.user_id).email %>
 	  			</p>
 	 
 				<p>

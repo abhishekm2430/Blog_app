@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+
   <body class="tb">
     <center>
     <h1>Listing articles</h1>
@@ -22,7 +21,7 @@
           <% if article.isactive.nil? %>
             <tr>
               <td><div class = "td1"><%=link_to article.title, article_path(article)%></div></td>
-              <td><%= User.find(article.user_id).email %></td>
+              <td><%= article.user.email %></td>
               <% if article.user_id == current_user.id %>
                 <td><%= link_to'Edit', edit_article_path(article) %></td>
                 <td><%= link_to'Delete', article_path(article), method: :delete, data: {confirm: 'Are you sure'} %></td>
@@ -34,7 +33,7 @@
         <% @articles.each do |article| %>
           <tr>
             <td><div class = "td1"><%=link_to article.title, article_path(article)%></div></td>
-            <td><%= User.find(article.user_id).email %></td>
+            <td><%= article.user.email %></td>
             <td><%= link_to'Edit', edit_article_path(article) %></td>
             <td><%= link_to'Delete', article_path(article), method: :delete, data: {confirm: 'Are you sure'} %></td>
           </tr>
@@ -43,4 +42,3 @@
     </table>
     </center>
   </body>
-</html>

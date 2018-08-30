@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   include Ability
 	def index
 		#binding.pry
-		@articles = Article.all
+		@articles = Article.all.includes(:user)
 	end
 
 	def show
