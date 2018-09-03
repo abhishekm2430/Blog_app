@@ -33,6 +33,7 @@ a:hover {
 body {
     background-color:black;
     color:white;
+    font-size: 20px;
     }
  
 .p1 {
@@ -56,6 +57,8 @@ body {
 	padding:5px;
 	font-family: times new roman;
 	font-style: italic;
+  font-size: 16px;
+  color : #5FE2F9 ;
 	}
 
   .usr {
@@ -94,6 +97,10 @@ body {
   margin : 5px;
   padding : 5px;
   font-size : 20px;
+}
+.fl {
+  margin : 5px;
+  padding : 5px;
 }
 .divr {
   position: absolute;
@@ -169,3 +176,6 @@ body {
   color:white;
   margin: 10px;
   }
+.page1 {
+  margin: 20px;
+}

@@ -4,7 +4,8 @@ class ArticlesController < ApplicationController
   include Ability
 	def index
 		#binding.pry
-		@articles = Article.all
+		@articles = Article.all.includes(:user).paginate(page: params[:page], per_page: 1)
+
 	end
 
 	def show
@@ -62,4 +63,4 @@ class ArticlesController < ApplicationController
 		params.require(:article).permit(:title,:text)
 	end
 end
-#working in feture branch
+#working in feature branch
