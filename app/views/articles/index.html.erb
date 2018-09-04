@@ -1,5 +1,5 @@
 
-  <body class="tb">
+  <br/><body class="tb">
     <center>
     <h1>Listing articles</h1>
     <p class = "p1"><%= link_to 'New article', new_article_path %></p>
@@ -33,6 +33,6 @@
         <% end %>
       <% end %>
     </table>
-    <p class = "page1"><%= will_paginate @articles %><p>
+   <div class = "page1"><%= will_paginate @articles %></div>
     </center>
   </body>
