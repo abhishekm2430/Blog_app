@@ -78,7 +78,8 @@ body {
 			
 .d4 {
 	position:absolute;
-	top:20px;
+	top:10px;
+  width: 100%;
 	}
              
 .link1 {
@@ -191,4 +192,16 @@ body {
   padding: 0px 5px 0px 5px;
   text-decoration: none;
   font-style: normal;
+}
+
+
+@media only screen and (max-width: 550px) {
+.text_area {
+  padding : 5px;
+  margin: 5px;
+  font-size: 20px;
+  border-radius:10px;
+  width: 100%;
+}
+  
 }

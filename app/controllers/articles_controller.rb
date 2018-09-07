@@ -1,10 +1,14 @@
 class ArticlesController < ApplicationController
 	#http_basic_authenticate_with name: "user", password:"password",except:[:index, :show]
   before_filter :authenticate_user!
+  around_filter :log_articles , only: :index
   include Ability
 	def index
 		#binding.pry
-		@articles = Article.all.includes(:user).paginate(page: params[:page], per_page: 1)
+		Rails.logger.info("Startedgetting articles")
+		@articles = Article.all.includes(:user)
+											 .paginate(page: params[:page], 
+											 	         per_page: 4)
 
 	end
 
@@ -61,6 +65,11 @@ class ArticlesController < ApplicationController
 	private
 	def article_params
 		params.require(:article).permit(:title,:text)
+	end
+	def log_articles
+		Rails.logger.info("Startedgetting articles")
+		yield
+		Rails.logger.info("Ended")
 	end
 end
 #working in feature branch
