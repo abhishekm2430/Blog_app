@@ -1,24 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet", type='text/css'>
   <title>Blog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <meta name="viewport" content="width = device-width, initial-scale = 1, shrink-to-fit = no">
 </head>
 <body>
-  <div class="container"><center>
+  <div class="container-fluid"><center>
       <% flash.each do |key, value| %>
         <div class="<%= key %>"><%= value %></div>
       <% end %>
-  </center></div>
-<div class = "divr">
+  </center>
+<div class = "hidd">
+  <center><div class="dropdown">
+    <button class="btn btn-primary toggle colr fr" type="button" data-toggle="dropdown">
+    <span class="caret"></span></button>
+    <div class = "row fr">
       <% if !(current_user.nil?)%>
-        <p class = "p1, fr"><%= link_to 'Log out', 'users/sign_out', method: :delete %></p>
-        <p class = "p1, fr"><%= current_user.email %></p>
-        <p class = "p2, fl"><%= link_to "Change password", edit_user_registration_path %></p>
+    <ul class="dropdown-menu">
+      <li><div class = "col-sm-auto link2"><center><%= current_user.email %></center></div></li>
+      <li><div class = "col-sm-auto link2"><center><%= link_to 'Log out', 'users/sign_out', method: :delete %></center></div></li>
+      <li><div class = "col-sm-auto link2"><center><%= link_to "Change your password", edit_user_registration_path %></center></div></li>
+    </ul>
+    <%end%>
+  </div>
+  </div></center>
+</div>
+<div class = "row fr hid2">
+      <% if !(current_user.nil?)%>
+      <div class = "col-sm-auto link2 wood"><center><%= current_user.email %></center></div>
+        <div class = "col-sm-auto link2"><center><%= link_to 'Log out', 'users/sign_out', method: :delete %></center></div>
+        
+        <div class = "col-sm-auto link2"><center><%= link_to "Change your password", edit_user_registration_path %></center></div>
       <% end %>
     </div> 
+  </div>
 <%= yield %>
 </body>
 </html>

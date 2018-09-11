@@ -1,27 +1,29 @@
 
-	<body>
-		<div class = "d4">
-			<div class = "link1"><%= link_to 'Home', articles_path%></div>
-      <% if @article.user_id == current_user.id %>
-			   <div class = "link1"><%= link_to'Edit', edit_article_path(@article) %></div>
+	<body class = "container-fluid">
+    <div class = "row" >
+		<div class = "col-sm-auto">
+			<center><div class = "link1"><%= link_to 'Home', articles_path%></div></center></div>
+      <% if @article.user_id == current_user.id %><div class = "col-sm-auto">
+			   <center><div class = "link1"><%= link_to'Edit', edit_article_path(@article) %></div></center></div>
 			<% end %>
 		</div>
-		<div class = "d1">
-			<p><center>
-	  			<strong>Title:</strong>
+    <br/>
+		<div class = " row">
+			<div class = "col-sm-12 font24"><p><center>
+	  			<strong class = "font32">Title : </strong>
 	  			<%= @article.title %>
 			</center></p>
-	 </div>
-   <div class = "d5">
-			<p><center>
-	  			<strong></strong>
+    </div>
+   <div class = "brown">
+			<p class = "brown"><center>
 	  			<%= @article.text %>
 			</center></p>
 		</div>
+  </div>
 
 		
-		<div class = "d2">
-			<h2>Comments</h2>
+		<div id = "comment_box" class = "d2 green">
+			<h1 class = "wood">Comments :</h1>
 			<% @article.comments.each do |comment| %>
 	  			<p>
 	    			<strong class = "usr">User :</strong>
@@ -40,12 +42,13 @@
 	 			</p>
 			<% end %>
 		</div>
+
 		<div class = "d3"><center>
-			<h2>Add a comment:</h2>
-			<%= form_for([@article, @article.comments.build]) do |f| %>
+			<h2 class = "white">Add a comment :</h2>
+			<%= form_for([@article, @article.comments.build],remote: true) do |f| %>
 		  		<p>
-		   			<%= f.label :Comment, class: 'text_area' %><br>
-		    		<%= f.text_area :body, class: 'text_area' %>
+		   			<%= f.label :Comment, class: 'text_area wood' %><br>
+		    		<%= f.text_area :body, class: 'text_area wood' %>
 		  		</p>
 		  		<p>
 		    		<%= f.submit class: 'submit_btn' %>
