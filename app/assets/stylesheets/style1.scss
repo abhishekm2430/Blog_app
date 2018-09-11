@@ -55,9 +55,16 @@ text-align: center;
 
 .d2 {
   margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
   font-size: 15px;
   max-width : 100%;
   word-wrap: break-word;
+  height: 330px;
+  overflow: auto;
+  border: 2px solid black;
+
+
 }
 
 .brown {

@@ -5,7 +5,10 @@ class Articles::CommentsController < ApplicationController
     @comment = @article.comments.new(comment_params)
     @comment.user_id = current_user.id
     @comment.save
-    redirect_to article_path(@article)
+    #redirect_to article_path(@article)
+    respond_to do |format|  
+            format.js { render 'articles/show_updated'}
+        end 
   end
 
   def destroy

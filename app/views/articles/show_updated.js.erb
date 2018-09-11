@@ -1,0 +1,19 @@
+//$("<p><%= @comment.body %></p>").appendTo("#comment_box");
+var comm = '<div>\
+              <p>\
+            <strong class = "usr">User :</strong>\
+            <%= @comment.user.email %>\
+          </p>\
+        <p>\
+            <strong class = "usr">Comment :</strong>\
+            <%= @comment.body %>\
+          </p>\
+        <p>\
+        <%= link_to "Delete Comment", [@comment.article, @comment],\
+                 method: :delete,\
+                 data: { confirm: "Are you sure?" } %>\
+        </p>\
+            </div>';
+
+$(comm).appendTo("#comment_box");            
+
