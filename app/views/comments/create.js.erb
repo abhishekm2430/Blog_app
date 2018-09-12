@@ -1,0 +1,63 @@
+/*      <h1>Comments :</h1>\
+      <% @article.comments.each do |comment| %>\
+          <p>\  
+            <strong class = "usr">User :</strong>\
+            <%= comment.user.email %>\
+          </p>\
+        <p>\
+            <strong class = "usr">Comment :</strong>\
+            <%= comment.body %>\
+          </p>\
+        <p>\
+        <%= link_to "Delete Comment", [comment.article, comment],\
+                 method: :delete,\
+                 data: { confirm: "Are you sure?" } %>\
+        </p>\
+      <% end %>\
+    </div>';
+
+var comm = '<div>\
+              <p>\
+            <strong class = "usr">User :</strong>\
+            <%= @comment.user.email %>\
+          </p>\
+        <p>\
+            <strong class = "usr">Comment :</strong>\
+            <%= @comment.body %>\
+          </p>\
+        <p>\
+        <%= link_to "Delete Comment", [@comment.article, @comment],\
+                 method: :delete,\
+                 data: { confirm: "Are you sure?" } %>\
+        </p>\
+            </div>';*/
+
+var comm = '<div>\
+            <% @a.comments.each do |commen| %>\
+            <p>\
+            <strong class = "usr">User :</strong>\
+            <%= commen.user.email %>\
+            </p>\
+        <p>\
+            <strong class = "usr">Comment :</strong>\
+            <%= commen.body %>\
+          </p>\
+        <p>\
+        <%= link_to "Delete Comment", [@comment.article, @comment],\
+                 method: :delete,\
+                 data: { confirm: "Are you sure?" } %>\
+        </p>\
+         <% end %>\
+            </div>';
+
+var message = '<center><div>\
+               <% if @flag == 1 %>\
+               <p> Your Comment has been added successfully </p>\
+               <% else %>\
+               <p> Operation failed </p>\
+               <% end %>\
+               </div></center>'
+
+$('#comment_box').html(comm);  
+$('.comm_class').val(" ");
+$('#messg').html(message);

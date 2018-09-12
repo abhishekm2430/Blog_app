@@ -4,10 +4,15 @@ class Articles::CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
     @comment = @article.comments.new(comment_params)
     @comment.user_id = current_user.id
-    @comment.save
+    @a = Article.find(params[:article_id])
+    if(@comment.save)
+      @flag = 1;
+    else
+      @flag = 0;
+    end
     #redirect_to article_path(@article)
     respond_to do |format|  
-            format.js { render 'articles/show_updated'}
+            format.js { render 'comments/create'}
         end 
   end
 
