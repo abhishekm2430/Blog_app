@@ -33,6 +33,7 @@ var comm = '<div>\
             </div>';*/
 
 var comm = '<div>\
+            <h1 class = "usr">Comments :</h1>\
             <% @a.comments.each do |commen| %>\
             <p>\
             <strong class = "usr">User :</strong>\
@@ -43,7 +44,8 @@ var comm = '<div>\
             <%= commen.body %>\
           </p>\
         <p>\
-        <%= link_to "Delete Comment", [@comment.article, @comment],\
+        <%= link_to "Delete Comment", [commen.article, commen],\
+                 remote: true,\
                  method: :delete,\
                  data: { confirm: "Are you sure?" } %>\
         </p>\
@@ -53,8 +55,12 @@ var comm = '<div>\
 var message = '<center><div>\
                <% if @flag == 1 %>\
                <p> Your Comment has been added successfully </p>\
-               <% else %>\
-               <p> Operation failed </p>\
+               <% elsif @flag == 0 %>\
+               <p> creation failed </p>\
+               <%elsif @flag == 2 %>\
+               <p> comment deleted successfully </p>\
+               <% elsif @flag == 3 %>\
+               <p> Deletion failed </p>\
                <% end %>\
                </div></center>'
 

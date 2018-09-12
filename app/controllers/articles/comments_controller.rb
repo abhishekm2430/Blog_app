@@ -19,8 +19,17 @@ class Articles::CommentsController < ApplicationController
   def destroy
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
-      @comment.destroy
-      redirect_to article_path(@article)
+    @a = Article.find(params[:article_id])
+    if(@comment.destroy)
+      @flag = 2;
+    else
+      @flag = 3;
+    end
+    #redirect_to article_path(@article)
+    respond_to do |format|  
+            format.js { render 'comments/create'}
+        end 
+      #redirect_to article_path(@article)
     end
 
   private
