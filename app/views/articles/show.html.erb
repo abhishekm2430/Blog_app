@@ -5,6 +5,8 @@
 			<center><div class = "link1"><%= link_to 'Home', articles_path%></div></center></div>
       <% if @article.user_id == current_user.id %><div class = "col-sm-auto">
 			   <center><div class = "link1"><%= link_to'Edit', edit_article_path(@article) %></div></center></div>
+         <div class = "col-sm-auto">
+         <center><div class = "link1"><%= link_to'Add Image', new_photo_path %></div></center></div>
 			<% end %>
 		</div>
     <br/>
@@ -58,5 +60,6 @@
 		  		</p>
 			<% end %></center>
 		</div>
+
 </body>
 

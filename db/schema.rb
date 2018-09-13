@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180829113757) do
+ActiveRecord::Schema.define(version: 20180913065021) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -33,6 +33,20 @@ ActiveRecord::Schema.define(version: 20180829113757) do
   end
 
   add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
+
+  create_table "photos", force: :cascade do |t|
+    t.string   "title",              limit: 255
+    t.integer  "imageable_id",       limit: 4
+    t.string   "imageable_type",     limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
+  end
+
+  add_index "photos", ["imageable_type", "imageable_id"], name: "index_photos_on_imageable_type_and_imageable_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
