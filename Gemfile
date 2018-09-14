@@ -34,6 +34,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'mini_racer'
+gem 'omniauth-facebook', '~> 4.0'
+gem 'activerecord-session_store', '~> 1.0'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -48,6 +50,7 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'dotenv', '~> 2.2.1'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
