@@ -1,13 +1,13 @@
 <div class="page-header"><h1>Upload Photo</h1></div>
-
+<center><div class = "link1"><%= link_to 'Home', articles_path%></div></center>
 <div>
-  <% @photos.each do |photo| %>
+  <% @article.photos.each do |photo| %>
     <div class="comp">
       <!-- Renders image -->
       <%= link_to image_tag(photo.image.url), photo.image.url, target: '_blank' %>
     </div>
     <div>
-      <h4><%=link_to photo.title, photo_path(photo), method: :delete, data: {confirm: 'Are you sure'} %></h4>
+      <h4>Delete : <%=link_to photo.title,"/articles/:article_id/photos/#{photo.id}", method: :delete, data: {confirm: 'Are you sure'} %></h4>
     </div>
   <% end %>
 </div>

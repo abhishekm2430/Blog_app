@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'welcome/index'
-  resources :photos
+
   resources :articles do
     resources :comments, controller: 'articles/comments'
-   
+    resources :photos
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
