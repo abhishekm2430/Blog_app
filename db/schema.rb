@@ -75,6 +75,11 @@ ActiveRecord::Schema.define(version: 20180914073122) do
     t.datetime "locked_at"
     t.integer  "failed_attempts",        limit: 4,   default: 0,  null: false
     t.string   "unlock_token",           limit: 255
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
